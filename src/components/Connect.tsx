@@ -1,9 +1,5 @@
 import React from 'react'
 
 export function Connect() {
-  return (
-    <div>
-      <w3m-button label='Connect' balance='hide' size='sm' />
-    </div>
-  )
+  return <w3m-button balance='hide' label='Connect' size='xxl' />
 }
