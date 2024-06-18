@@ -5,12 +5,11 @@ import Link from 'next/link'
 
 export function Header() {
   return (
-    <header className='navbar flex justify-between items-center p-4'>
+    <header className='xl:w-[15%] py-2 xl:py-4 flex xl:flex-col justify-between border-[0.4px] border-foreground items-center rounded-r-2xl'>
       <LinkComponent href='/'>
-        <h1 className='text-[3rem] font-semibold leading-none'>coin tracker</h1>
+        <h1 className='text-2xl xl:text-[3rem] font-semibold leading-none'>symple</h1>
       </LinkComponent>
-      <div className='font-semibold cursor-pointer'>new token</div>
-      <div className='flex items-center justify-center'>
+      <div className='xl:flex items-center justify-center'>
         <Connect />
       </div>
     </header>

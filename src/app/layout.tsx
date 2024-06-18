@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from 'next'
 import { PropsWithChildren } from 'react'
-import { SITE_DESCRIPTION, SITE_EMOJI, SITE_INFO, SITE_NAME, SITE_URL, SOCIAL_TWITTER } from '@/utils/site'
+import { SITE_DESCRIPTION, SITE_INFO, SITE_NAME, SITE_URL, SOCIAL_TWITTER } from '@/utils/site'
 import { Layout } from '@/components/Layout'
 import { Web3Provider } from '@/context/Web3'
 import { cookieToInitialState } from 'wagmi'
@@ -53,12 +53,11 @@ export default function RootLayout(props: PropsWithChildren) {
   return (
     <html lang='en'>
       <head>
-        <link
+        {/* <link
           rel='icon'
-          href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>${SITE_EMOJI}</text></svg>`}
-        />
+          href={`data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>$</text></svg>`}
+        /> */}
       </head>
-
       <body>
         <Web3Provider initialState={initialState}>
           <Layout>{props.children}</Layout>

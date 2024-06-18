@@ -4,10 +4,9 @@ import { Footer } from './Footer'
 
 export function Layout(props: PropsWithChildren) {
   return (
-    <div className='flex flex-col min-h-screen'>
+    <div className='xl:flex grid h-[100dvh]'>
       <Header />
       <main className='flex-grow'>{props.children}</main>
-      <Footer />
     </div>
   )
 }
