@@ -27,9 +27,11 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
   }
   return (
     <>
-      <div className='flex flex-col xl:py-4 h-[100dvh] overflow-scroll gap-6 scrollbar'>
+      <div className='scrollbar flex h-[100dvh] flex-col gap-6 overflow-scroll xl:py-4'>
         <div className='grid gap-1'>
-          <span className='font-semibold text-primary/50 px-2 xl:px-5'>Native</span>
+          <span className='px-2 font-semibold text-primary/50 xl:px-5'>
+            Native
+          </span>
           <CoinDisplay
             name={chain?.nativeCurrency.name ?? null}
             symbol={nativeToken?.symbol ?? null}
@@ -38,7 +40,9 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
         </div>
         {/*  */}
         <div className='grid gap-1'>
-          <span className='font-semibold px-2 xl:px-5 text-primary/50'>ERC20</span>
+          <span className='px-2 font-semibold text-primary/50 xl:px-5'>
+            ERC20
+          </span>
           {isFetching ? (
             <>
               <CoinPlaceholder />

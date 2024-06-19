@@ -15,7 +15,11 @@ const useEnsProfile = ({ ensName, key }: { ensName: string; key?: string }) => {
 
   const { data: ensAddress } = useEnsAddress({ name, chainId: 1 })
   const { data: ensAvatar } = useEnsAvatar({ name, chainId: 1 })
-  const { data: ensTextData } = useEnsText({ name, chainId: 1, key: key ?? 'text' })
+  const { data: ensTextData } = useEnsText({
+    name,
+    chainId: 1,
+    key: key ?? 'text',
+  })
 
   return { ensAddress, ensAvatar, ensTextData }
 }

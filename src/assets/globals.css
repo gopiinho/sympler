@@ -103,4 +103,9 @@
     font-size: min(140px, max(65px, calc(65px + (140 - 65) * (100vw - 320px) / (1920 -320))));
     color: green;
   }
+
+  .\~text-lg\/2xl {
+    font-size: clamp(1.125rem, 0.9rem + 0.75vw, 1.5rem);
+    line-height: clamp(1.75rem, 1.6rem + 0.5vw, 2rem);
+  }
 }

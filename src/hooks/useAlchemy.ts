@@ -24,9 +24,12 @@ export default function useAlchemy(userAddress: Address) {
     const tokenBalances: OwnedTokensData[] = []
     for (let token of nonZeroBalances) {
       let balance: string | number | null = token.tokenBalance
-      const metadata = await alchemy.core.getTokenMetadata(token.contractAddress)
+      const metadata = await alchemy.core.getTokenMetadata(
+        token.contractAddress
+      )
       if (metadata.decimals) {
-        const readableBalance = Number(balance) / Math.pow(10, metadata.decimals)
+        const readableBalance =
+          Number(balance) / Math.pow(10, metadata.decimals)
         balance = readableBalance.toFixed(2)
         metadata.logo
       }

@@ -14,7 +14,9 @@ export function NetworkStatus() {
 
   return (
     <div className='flex items-center gap-2 p-2'>
-      <div className={`py-1 px-4 rounded-2xl text-foreground ${color}`}>{networkName}</div>
+      <div className={`rounded-2xl px-4 py-1 text-foreground ${color}`}>
+        {networkName}
+      </div>
       {explorerUrl && (
         <LinkComponent href={explorerUrl}>
           <p className='text-xs'># {block.data?.toString()}</p>

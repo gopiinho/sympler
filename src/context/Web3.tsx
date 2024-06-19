@@ -22,8 +22,13 @@ createWeb3Modal({
 export function Web3Provider(props: Props) {
   return (
     <>
-      <WagmiProvider config={WALLETCONNECT_CONFIG} initialState={props.initialState}>
-        <QueryClientProvider client={queryClient}>{props.children}</QueryClientProvider>
+      <WagmiProvider
+        config={WALLETCONNECT_CONFIG}
+        initialState={props.initialState}
+      >
+        <QueryClientProvider client={queryClient}>
+          {props.children}
+        </QueryClientProvider>
       </WagmiProvider>
     </>
   )

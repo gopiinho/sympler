@@ -10,11 +10,17 @@ interface Props {
 
 export function LinkComponent(props: Props) {
   const className = props.className ?? ''
-  const isExternal = props.href.match(/^([a-z0-9]*:|.{0})\/\/.*$/) || props.isExternal
+  const isExternal =
+    props.href.match(/^([a-z0-9]*:|.{0})\/\/.*$/) || props.isExternal
 
   if (isExternal) {
     return (
-      <Link className={className} href={props.href} target='_blank' rel='noopener noreferrer'>
+      <Link
+        className={className}
+        href={props.href}
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         {props.children}
       </Link>
     )
