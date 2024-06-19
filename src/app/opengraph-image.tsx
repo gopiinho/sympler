@@ -1,4 +1,4 @@
-import { SITE_EMOJI, SITE_INFO, SITE_NAME } from '@/utils/site'
+import { SITE_INFO, SITE_NAME } from '@/utils/site'
 import { ImageResponse } from 'next/og'
 
 // Route segment config
@@ -19,9 +19,7 @@ export default async function Image() {
             'linear-gradient(to right bottom, rgb(17, 24, 39), rgb(75, 85, 99))',
         }}
       >
-        <h1 tw='text-8xl'>
-          {SITE_EMOJI} {SITE_NAME}
-        </h1>
+        <h1 tw='text-8xl'>{SITE_NAME}</h1>
         <p tw='text-4xl'>{SITE_INFO}</p>
       </div>
     )

@@ -5,7 +5,7 @@
 @layer base {
   :root {
     --background: 0 0% 82%;
-    --foreground: 0 0% 3.9%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -97,15 +97,5 @@
 
   .scrollbar::-webkit-scrollbar:hover {
     border: 0;
-  }
-
-  .text-p {
-    font-size: min(140px, max(65px, calc(65px + (140 - 65) * (100vw - 320px) / (1920 -320))));
-    color: green;
-  }
-
-  .\~text-lg\/2xl {
-    font-size: clamp(1.125rem, 0.9rem + 0.75vw, 1.5rem);
-    line-height: clamp(1.75rem, 1.6rem + 0.5vw, 2rem);
   }
 }

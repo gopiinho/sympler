@@ -13,9 +13,11 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
   const { chain } = useAccount()
   const { getOwnedTokenBalances } = useAlchemy(address)
 
-  const { data: nativeToken } = useBalance({
-    address: address,
-  })
+  const { data: nativeToken, isFetching: isFetchingNativeBalance } = useBalance(
+    {
+      address: address,
+    }
+  )
 
   const { data: tokenData, isFetching } = useQuery({
     queryKey: ['ownedTokenBalances'],
@@ -27,7 +29,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
   }
   return (
     <>
-      <div className='scrollbar flex h-[100dvh] flex-col gap-6 overflow-scroll xl:py-4'>
+      <div className='scrollbar flex h-[100dvh] flex-col gap-6 overflow-scroll ~py-4/6'>
         <div className='grid gap-1'>
           <span className='px-2 font-semibold text-primary/50 xl:px-5'>
             Native

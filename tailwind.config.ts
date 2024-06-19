@@ -1,5 +1,5 @@
 import type { Config } from 'tailwindcss'
-import fluid, { extract } from 'fluid-tailwind'
+import fluid, { extract, screens, fontSize } from 'fluid-tailwind'
 
 const config = {
   darkMode: ['class'],
@@ -14,6 +14,8 @@ const config = {
   },
   prefix: '',
   theme: {
+    screens,
+    fontSize,
     container: {
       center: true,
       padding: '2rem',
@@ -78,7 +80,7 @@ const config = {
       },
     },
   },
-  plugins: [require('tailwindcss-animate'), fluid],
+  plugins: [require('tailwindcss-animate'), fluid, require('fluid-tailwind')],
 } satisfies Config
 
 export default config

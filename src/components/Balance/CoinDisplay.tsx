@@ -24,17 +24,17 @@ export default function CoinDisplay({
   const truncatedSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='flex w-full justify-between px-2 py-4 duration-100 hover:cursor-pointer hover:bg-slate-100 sm:py-6 xl:px-8'>
+    <div className='flex w-full justify-between duration-100 ~px-3/8 ~py-3/6 hover:cursor-pointer hover:bg-slate-100'>
       <div className='flex items-center justify-center gap-2'>
-        <span className='text-xl font-semibold'>{truncatedName}</span>
-        <span className='text-primary/50'>{truncatedSymbol}</span>
+        <span className='font-semibold ~text-base/lg'>{truncatedName}</span>
+        <span className='text-primary/50 ~text-sm/base'>{truncatedSymbol}</span>
       </div>
       <div className='grid gap-1 text-end'>
-        <span className='text-xs text-primary/50'>Amount</span>
+        <span className='text-primary/50 ~text-xs/sm'>Amount</span>
         {balance === undefined ? (
           'loading'
         ) : (
-          <div className='flex font-semibold'>
+          <div className='flex justify-end font-semibold ~text-base/lg'>
             {nFormatter(Number(balance))}
           </div>
         )}
