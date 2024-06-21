@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from 'next'
+import localFont from 'next/font/local'
 import { PropsWithChildren } from 'react'
 import {
   SITE_DESCRIPTION,
@@ -13,6 +14,11 @@ import { cookieToInitialState } from 'wagmi'
 import { WALLETCONNECT_CONFIG } from '@/utils/web3'
 import { headers } from 'next/headers'
 import '../assets/globals.css'
+
+const nats = localFont({
+  src: '../../public/fonts/NATS.ttf',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   applicationName: SITE_NAME,
@@ -60,7 +66,7 @@ export default function RootLayout(props: PropsWithChildren) {
   )
 
   return (
-    <html lang='en'>
+    <html lang='en' className={nats.className}>
       <head>
         {/* <link
           rel='icon'

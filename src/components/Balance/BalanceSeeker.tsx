@@ -1,3 +1,4 @@
+'use client'
 import { Address } from 'viem'
 import { useBalance, useAccount } from 'wagmi'
 import CoinDisplay from './CoinDisplay'
@@ -31,7 +32,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
     <>
       <div className='scrollbar flex h-[100dvh] flex-col gap-6 overflow-scroll ~py-4/6'>
         <div className='grid gap-1'>
-          <span className='px-2 font-semibold text-primary/50 xl:px-5'>
+          <span className='px-2 font-semibold text-primary/50 lg:px-5'>
             Native
           </span>
           <CoinDisplay
@@ -42,7 +43,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
         </div>
         {/*  */}
         <div className='grid gap-1'>
-          <span className='px-2 font-semibold text-primary/50 xl:px-5'>
+          <span className='px-2 font-semibold text-primary/50 lg:px-5'>
             ERC20
           </span>
           {isFetching ? (
