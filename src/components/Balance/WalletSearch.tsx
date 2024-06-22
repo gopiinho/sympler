@@ -6,23 +6,27 @@ import { Address } from 'viem'
 
 export default function WalletSearch() {
   const [address, setAddress] = useState<string | Address>('')
-  const { push } = useRouter()
+  const router = useRouter()
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setAddress(event.target.value as Address)
   }
 
+  const openProfile = () => {
+    router.push(`/profile/${address}`)
+  }
+
   return (
     <div className='flex gap-1'>
       <input
-        className='h-10 rounded-l-[0.5rem] text-center shadow-md shadow-primary/50 ~w-80/[27rem] ~px-4/8 ~py-2/3'
+        className='h-10 appearance-none rounded-l-[0.5rem] border border-transparent text-center shadow-md shadow-primary/50 outline-0 duration-200 ~w-72/[27rem] ~px-4/8 ~py-2/3 hover:border-accent'
         placeholder='Track any wallet address or ENS name'
         onChange={handleChangeInput}
         value={address}
       />
       <button
-        onClick={() => push(`/profile/${address}`)}
-        className='rounded-r-[0.5rem] bg-primary text-xl text-background shadow-md shadow-primary/50 ~px-2/3 ~py-1/2'
+        onClick={openProfile}
+        className='rounded-r-[0.5rem] bg-primary text-xl text-background shadow-md shadow-primary/50 duration-200 ~px-2/3 ~py-1/2 hover:text-accent'
       >
         <MdOutlineArrowRightAlt />
       </button>

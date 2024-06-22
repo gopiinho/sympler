@@ -4,7 +4,7 @@ import { Footer } from './Footer'
 
 export function Layout(props: PropsWithChildren) {
   return (
-    <div className='grid h-[100dvh] lg:flex'>
+    <div className='grid lg:flex lg:h-[100dvh]'>
       <Header />
       <main className='flex-grow'>{props.children}</main>
     </div>
