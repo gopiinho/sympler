@@ -4,8 +4,9 @@ export default function Home() {
   return (
     <div className='flex h-full w-full flex-col items-center justify-center gap-8 py-10 text-center ~px-4/8'>
       <div className='grid'>
-        <h1 className='select-none font-semibold leading-none ~text-5xl/[6rem]'>
-          Access Portfolio's
+        <h1 className='select-none font-semibold leading-none ~text-5xl/[7rem]'>
+          <span style={{ textShadow: '1px 1px orange' }}>Symplify</span> your
+          tokens
         </h1>
         <p className='text-primary/60 ~text-xl/2xl'>
           Track your token balances, wallet valuation with easy to use platform.
