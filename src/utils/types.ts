@@ -13,3 +13,5 @@ export interface Notification {
   from?: string
   href?: string
 }
+
+export interface ProfileTokenStats {}

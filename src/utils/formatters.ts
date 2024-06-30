@@ -1,9 +1,14 @@
-'use client'
 import { formatEther } from 'viem'
 
+// format wei units to readable with fixed decimals
 export const formatBalance = (balance: bigint, toFixed?: number) => {
   if (!balance) return undefined
   return parseFloat(formatEther(balance, 'wei')).toFixed(toFixed ?? 4)
+}
+
+// split the address
+export function formatAddress(address: string): string {
+  return `${address.slice(0, 6)}...${address.slice(-4)}`
 }
 
 export function nFormatter(num: number, round: number = 2): string {
@@ -20,4 +25,12 @@ export function nFormatter(num: number, round: number = 2): string {
     return num.toFixed(round)
   }
   return num.toString()
+}
+
+export function truncateMiddle(text: string, length: number = 5) {
+  if (text?.length > length * 2 + 1) {
+    return `${text.substring(0, length)}...${text.substring(text.length - length, text.length)}`
+  }
+
+  return text
 }

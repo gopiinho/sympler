@@ -1,18 +1,15 @@
-import { Address } from 'viem'
-import axiosAlchemyInstance from './axios'
-import axios from 'axios'
+import { axiosMoralisInstance } from './axios'
+import { WalletTokenInfoResponseType } from '@/types/token'
 
-export const getUserTokens = async (user: Address) => {
-  const data = {
-    jsonrpc: '2.0',
-    method: 'alchemy_getTokenBalances',
-    params: [user],
-    id: 1,
-  }
-  try {
-    const response = await axiosAlchemyInstance.post('', data)
-    return response['data']['result']
-  } catch (error: any) {
-    throw new Error(error.response?.data || 'Something went wrong')
-  }
+export const getWalletTokenInfo = async (
+  address: string,
+  chain = 'base'
+): Promise<WalletTokenInfoResponseType> => {
+  const response = await axiosMoralisInstance.get<WalletTokenInfoResponseType>(
+    `/wallets/${address}/tokens`,
+    {
+      params: { chain },
+    }
+  )
+  return response.data
 }

@@ -1,45 +1,29 @@
 'use client'
+import { useState } from 'react'
 import { Address } from 'viem'
-import { useBalance, useAccount } from 'wagmi'
 import CoinDisplay from './CoinDisplay'
 import { useQuery } from '@tanstack/react-query'
-import useAlchemy, { OwnedTokensData } from '@/hooks/useAlchemy'
 import CoinPlaceholder from '../Placeholders/CoinPlaceholder'
+import { getWalletTokenInfo } from '@/utils/Api/api'
+import { TokenInfoType } from '@/types/token'
+import { mockTokenData } from './mockdata'
 
 interface BalanceSeekerProps {
   address: Address
 }
 
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
-  const { chain } = useAccount()
-  const { getOwnedTokenBalances } = useAlchemy(address)
+  // const { data: tokenData, isFetching } = useQuery({
+  //   queryKey: ['ownedTokenBalances'],
+  //   queryFn: () => getWalletTokenInfo(address),
+  //   refetchOnWindowFocus: false,
+  // })
 
-  const { data: nativeToken, isFetching: isFetchingNativeBalance } = useBalance(
-    {
-      address: address,
-    }
-  )
-
-  const { data: tokenData, isFetching } = useQuery({
-    queryKey: ['ownedTokenBalances'],
-    queryFn: () => getOwnedTokenBalances(),
-    refetchOnWindowFocus: false,
-  })
+  const isFetching = false
 
   return (
     <>
-      <div className='flex h-full flex-col gap-6 ~py-4/6'>
-        <div className='grid gap-1'>
-          <span className='px-2 font-semibold text-primary/50 lg:px-5'>
-            Native
-          </span>
-          <CoinDisplay
-            name={chain?.nativeCurrency.name ?? null}
-            symbol={nativeToken?.symbol ?? null}
-            balance={nativeToken?.formatted ?? null}
-          />
-        </div>
-        {/*  */}
+      <div className='scrollbar flex h-full flex-col gap-6 overflow-y-scroll ~py-4/6'>
         <div className='grid gap-1'>
           <span className='px-2 font-semibold text-primary/50 lg:px-5'>
             ERC20
@@ -53,15 +37,18 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
             </>
           ) : (
             <>
-              {tokenData?.map((token: OwnedTokensData, index: number) => (
-                <CoinDisplay
-                  key={index}
-                  logo={token.logo}
-                  name={token.name}
-                  symbol={token.symbol}
-                  balance={token.balance}
-                />
-              ))}
+              {mockTokenData.result?.map(
+                (token: TokenInfoType, index: number) => (
+                  <CoinDisplay
+                    key={index}
+                    name={token.name}
+                    symbol={token.symbol}
+                    balance={token.balance_formatted}
+                    usd_value={token.usd_value}
+                    logo={token.logo}
+                  />
+                )
+              )}
             </>
           )}
         </div>
