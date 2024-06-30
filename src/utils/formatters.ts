@@ -34,3 +34,18 @@ export function truncateMiddle(text: string, length: number = 5) {
 
   return text
 }
+
+export function formatPrice(price: number | undefined): string {
+  if (price === null || price === undefined) return '-'
+  if (price === 0) return '$0.00'
+  if (price < 0.000001) {
+    return `$${price.toExponential(2)}`
+  }
+  if (price < 0.01) {
+    return `$${price.toFixed(6)}`
+  }
+  if (price < 1) {
+    return `$${price.toFixed(4)}`
+  }
+  return `$${price.toFixed(2)}`
+}

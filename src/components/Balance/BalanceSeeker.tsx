@@ -1,25 +1,21 @@
 'use client'
-import { useState } from 'react'
 import { Address } from 'viem'
 import CoinDisplay from './CoinDisplay'
 import { useQuery } from '@tanstack/react-query'
 import CoinPlaceholder from '../Placeholders/CoinPlaceholder'
 import { getWalletTokenInfo } from '@/utils/Api/api'
 import { TokenInfoType } from '@/types/token'
-import { mockTokenData } from './mockdata'
 
 interface BalanceSeekerProps {
   address: Address
 }
 
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
-  // const { data: tokenData, isFetching } = useQuery({
-  //   queryKey: ['ownedTokenBalances'],
-  //   queryFn: () => getWalletTokenInfo(address),
-  //   refetchOnWindowFocus: false,
-  // })
-
-  const isFetching = false
+  const { data: tokenData, isFetching } = useQuery({
+    queryKey: ['ownedTokenBalances'],
+    queryFn: () => getWalletTokenInfo(address),
+    refetchOnWindowFocus: false,
+  })
 
   return (
     <>
@@ -37,18 +33,20 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
             </>
           ) : (
             <>
-              {mockTokenData.result?.map(
-                (token: TokenInfoType, index: number) => (
-                  <CoinDisplay
-                    key={index}
-                    name={token.name}
-                    symbol={token.symbol}
-                    balance={token.balance_formatted}
-                    usd_value={token.usd_value}
-                    logo={token.logo}
-                  />
-                )
-              )}
+              {tokenData?.result?.map((token: TokenInfoType, index: number) => (
+                <CoinDisplay
+                  key={index}
+                  name={token.name}
+                  symbol={token.symbol}
+                  usd_price={token.usd_price}
+                  balance={token.balance_formatted}
+                  usd_value={token.usd_value}
+                  logo={token.logo}
+                  usd_price_24hr_percent_change={
+                    token.usd_price_24hr_percent_change
+                  }
+                />
+              ))}
             </>
           )}
         </div>

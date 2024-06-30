@@ -25,6 +25,8 @@ const config = {
     },
     extend: {
       colors: {
+        percentGreen: 'hsl(var(--percent-green))',
+        percentRed: 'hsl(var(--percent-red))',
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

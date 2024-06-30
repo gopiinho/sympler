@@ -31,7 +31,8 @@
     --border: 0 0% 89.8%;
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
-
+    --percent-green: 118, 90%, 29%;
+    --percent-red: 7, 98%, 46%;
     --radius: 0.5rem;
   }
 
@@ -63,6 +64,8 @@
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
+    --percent-green: 118, 96, 41;
+    --percent-red: 7, 98%, 38%;
   }
 }
 

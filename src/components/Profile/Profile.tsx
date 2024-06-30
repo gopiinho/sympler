@@ -12,11 +12,11 @@ export default function Profile() {
 
   return (
     <div className='flex gap-4'>
-      <div className='flex select-none items-center justify-center rounded-lg border-2 border-foreground bg-foreground/20 text-center text-3xl ~h-12/20 ~w-12/20'>
+      {/* <div className='flex select-none items-center justify-center rounded-lg border-2 border-foreground bg-foreground/20 text-center text-3xl ~h-12/20 ~w-12/20'>
         {displayAddress.substring(0, 3)}
-      </div>
+      </div> */}
       <div className='flex flex-col gap-1'>
-        <div className='text-foreground/80 ~text-xl/3xl'>
+        <div className='text-foreground/80 ~text-3xl/5xl'>
           {formatAddress(displayAddress)}
         </div>
       </div>
