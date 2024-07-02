@@ -19,7 +19,7 @@ export default function WalletSearch() {
   return (
     <div className='flex gap-1'>
       <input
-        className='h-10 rounded-l-[0.5rem] border border-transparent text-center text-base shadow-lg shadow-primary/50 outline-0 duration-200 ~w-72/[27rem] ~px-4/8 ~py-2/3 hover:border-accent'
+        className='h-10 rounded-l-[0.5rem] border border-accent/50 text-center text-base shadow-lg shadow-accent/50 outline-0 duration-200 ~w-72/[27rem] ~px-4/8 ~py-2/3 hover:border-accent'
         placeholder='Track any wallet address or ENS name'
         onChange={handleChangeInput}
         value={address}
