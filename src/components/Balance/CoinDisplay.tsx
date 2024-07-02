@@ -23,7 +23,7 @@ export default function CoinDisplay({
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='flex w-full justify-between duration-100 ~px-3/8 ~py-3/6 hover:cursor-pointer hover:bg-slate-100'>
+    <div className='flex w-full justify-between duration-100 ~px-3/8 ~py-3/6 hover:cursor-pointer hover:bg-secondary'>
       <div className='flex items-center justify-center gap-2'>
         <div className='hidden h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
           {logo ? (
