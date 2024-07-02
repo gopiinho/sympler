@@ -1,9 +1,9 @@
 'use client'
 import { Address } from 'viem'
-import CoinDisplay from './CoinDisplay'
+import CoinDisplay from './coin-display'
 import { useQuery } from '@tanstack/react-query'
-import CoinPlaceholder from '../Placeholders/CoinPlaceholder'
-import { getWalletTokenInfo } from '@/utils/Api/api'
+import CoinPlaceholder from '../placeholders/coin-placeholder'
+import { getWalletTokenInfo } from '@/utils/api/api'
 import { TokenInfoType } from '@/types/token'
 
 interface BalanceSeekerProps {

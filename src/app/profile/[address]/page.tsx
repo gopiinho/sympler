@@ -1,8 +1,8 @@
 import { useRouter } from 'next/navigation'
 import { Address } from 'viem'
 import { useAccount } from 'wagmi'
-import BalanceSeeker from '@/components/Balance/BalanceSeeker'
-import ProfileSection from '@/components/Profile/ProfileSection'
+import BalanceSeeker from '@/components/balance/balance-seeker'
+import ProfileSection from '@/components/profile/profile-section'
 
 export default function Profile({ params }: { params: { address: Address } }) {
   return (

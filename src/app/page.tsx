@@ -1,4 +1,4 @@
-import WalletSearch from '@/components/Balance/WalletSearch'
+import WalletSearch from '@/components/balance/wallet-search'
 
 export default function Home() {
   return (

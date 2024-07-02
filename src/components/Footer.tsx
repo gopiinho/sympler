@@ -1,8 +1,8 @@
 import React from 'react'
 import { SITE_INFO, SOCIAL_GITHUB, SOCIAL_TWITTER } from '@/utils/site'
 import { FaGithub, FaXTwitter } from 'react-icons/fa6'
-import { NetworkStatus } from './NetworkStatus'
-import { LinkComponent } from './LinkComponent'
+import { NetworkStatus } from './network-status'
+import { LinkComponent } from './link-component'
 
 export function Footer() {
   return (

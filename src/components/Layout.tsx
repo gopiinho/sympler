@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react'
-import { Header } from './Header'
-import { ThemeProvider } from './ThemeProvider'
+import { Navbar } from './navbar'
+import { ThemeProvider } from './theme-provider'
 
 export function Layout(props: PropsWithChildren) {
   return (
@@ -11,7 +11,7 @@ export function Layout(props: PropsWithChildren) {
       disableTransitionOnChange
     >
       <div className='grid lg:flex lg:h-[100dvh]'>
-        <Header />
+        <Navbar />
         <main className='flex-grow'>{props.children}</main>
       </div>
     </ThemeProvider>

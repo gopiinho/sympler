@@ -1,4 +1,4 @@
-import Profile from './Profile'
+import Profile from './profile'
 
 export default function ProfileSection() {
   return (

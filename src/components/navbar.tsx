@@ -1,9 +1,9 @@
 import React from 'react'
-import { LinkComponent } from './LinkComponent'
+import { LinkComponent } from './link-component'
 import { FaXTwitter, FaGithub } from 'react-icons/fa6'
 import { ThemeToggle } from './ui/theme-toggle'
 
-export function Header() {
+export function Navbar() {
   return (
     <header className='max-xl: mx-auto flex w-full items-center justify-between gap-4 border-b-[0.04px] border-primary/50 ~py-4/5 max-lg:max-h-20 max-lg:px-6 lg:w-[15%] lg:flex-col lg:rounded-r-2xl lg:border-[0.4px]'>
       <LinkComponent href='/'>

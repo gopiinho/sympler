@@ -8,8 +8,8 @@ import {
   SITE_URL,
   SOCIAL_TWITTER,
 } from '@/utils/site'
-import { Layout } from '@/components/Layout'
-import { Web3Provider } from '@/context/Web3'
+import { Layout } from '@/components/layout'
+import { Web3Provider } from '@/context/web3'
 import { cookieToInitialState } from 'wagmi'
 import { WALLETCONNECT_CONFIG } from '@/utils/web3'
 import { headers } from 'next/headers'
