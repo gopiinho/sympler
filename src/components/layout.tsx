@@ -2,7 +2,7 @@ import React, { PropsWithChildren } from 'react'
 import { Navbar } from './navbar'
 import { ThemeProvider } from './theme-provider'
 
-export function Layout(props: PropsWithChildren) {
+export default function Layout(props: PropsWithChildren) {
   return (
     <ThemeProvider
       attribute='class'

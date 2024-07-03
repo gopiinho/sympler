@@ -19,7 +19,7 @@ createWeb3Modal({
   enableOnramp: true,
 })
 
-export function Web3Provider(props: Props) {
+export default function Web3Provider(props: Props) {
   return (
     <>
       <WagmiProvider
