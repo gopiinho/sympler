@@ -12,12 +12,6 @@ export default function Home() {
         </p>
       </div>
       <div className='mt-4 grid items-center gap-2'>
-        {/* <div>
-          <button className='w-full rounded-[0.5rem] bg-primary text-background shadow-md shadow-primary/50 ~px-4/8 ~py-2/3'>
-            Connect Wallet
-          </button>
-        </div> */}
-        {/* <span className='select-none text-foreground/50'>X</span> */}
         <div className='grid'>
           <WalletSearch />
         </div>

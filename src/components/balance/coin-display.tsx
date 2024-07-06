@@ -23,9 +23,9 @@ export default function CoinDisplay({
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='flex w-full justify-between duration-100 ~px-3/8 ~py-3/6 hover:cursor-pointer hover:bg-secondary'>
+    <div className='flex w-full justify-between duration-100 ~px-3/8 ~py-3/4 hover:cursor-pointer hover:bg-secondary'>
       <div className='flex items-center justify-center gap-2'>
-        <div className='hidden h-12 w-12 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
+        <div className='hidden h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
           {logo ? (
             <>
               <img src={logo} alt='token logo'></img>
@@ -37,9 +37,8 @@ export default function CoinDisplay({
         <span className='font-semibold ~text-base/lg'>{shortName}</span>
         <span className='text-primary/50 ~text-sm/base'>{shortSymbol}</span>
       </div>
-      <div className='flex justify-between ~gap-6/12 xl:w-[50%]'>
+      <div className='flex items-center justify-between ~gap-6/12 xl:w-[50%]'>
         <div className='hidden w-24 gap-1 text-end xl:grid'>
-          <span className='text-primary/50 ~text-xs/sm'>Price USD</span>
           {usd_price === null ? (
             '-'
           ) : (
@@ -49,7 +48,6 @@ export default function CoinDisplay({
           )}
         </div>
         <div className='hidden w-24 gap-1 text-end xl:grid'>
-          <span className='text-primary/50 ~text-xs/sm'>24h</span>
           {usd_price_24hr_percent_change === null ||
           usd_price_24hr_percent_change === undefined ? (
             '-'
@@ -67,7 +65,6 @@ export default function CoinDisplay({
           )}
         </div>
         <div className='grid w-20 gap-1 text-end'>
-          <span className='text-primary/50 ~text-xs/sm'>Amount</span>
           {balance === null ? (
             '-'
           ) : (
@@ -77,7 +74,6 @@ export default function CoinDisplay({
           )}
         </div>
         <div className='grid w-20 gap-1 text-end'>
-          <span className='text-primary/50 ~text-xs/sm'>Value</span>
           {usd_value === null ? (
             '-'
           ) : (
