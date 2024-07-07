@@ -18,12 +18,13 @@ export default function CoinDisplay({
   usd_value,
   usd_price_24hr_percent_change,
   logo,
+  portfolio_percentage,
 }: CoinDisplayProps) {
   const shortName = name ? truncateString(name, 20) : null
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='flex w-full justify-between duration-200 ~px-3/8 ~py-3/4 hover:cursor-pointer hover:bg-secondary'>
+    <div className='group relative flex w-full justify-between duration-200 ~px-3/8 ~py-3/4 hover:bg-secondary/20'>
       <div className='flex items-center justify-center gap-2'>
         <div className='hidden h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
           {logo ? (
@@ -83,6 +84,10 @@ export default function CoinDisplay({
           )}
         </div>
       </div>
+      <span
+        className='absolute inset-0 -z-20 h-full w-full rounded-r-md bg-accent/10 duration-300 group-hover:bg-accent/30'
+        style={{ width: `${portfolio_percentage}%` }}
+      />
     </div>
   )
 }

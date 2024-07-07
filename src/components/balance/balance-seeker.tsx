@@ -80,6 +80,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
                   usd_price_24hr_percent_change={
                     token.usd_price_24hr_percent_change
                   }
+                  portfolio_percentage={token.portfolio_percentage}
                 />
               ))}
             </>
