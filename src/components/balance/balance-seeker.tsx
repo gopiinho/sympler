@@ -13,13 +13,17 @@ interface BalanceSeekerProps {
 }
 
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
-  const { setTotalBalance, isLoadingBalance } = useBalanceStore()
+  const { setTotalBalance, setLoadingBalance } = useBalanceStore()
 
   const { data: tokenData, isFetching } = useQuery({
     queryKey: ['ownedTokenBalances'],
     queryFn: () => getWalletTokenInfo(address),
     refetchOnWindowFocus: false,
   })
+
+  useEffect(() => {
+    setLoadingBalance(isFetching)
+  }, [isFetching, setLoadingBalance])
 
   useEffect(() => {
     if (tokenData?.result) {
@@ -30,7 +34,6 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
         },
         0
       )
-
       setTotalBalance(totalBalance)
     }
   }, [tokenData])
