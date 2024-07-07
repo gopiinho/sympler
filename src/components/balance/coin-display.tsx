@@ -23,7 +23,7 @@ export default function CoinDisplay({
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='flex w-full justify-between duration-100 ~px-3/8 ~py-3/4 hover:cursor-pointer hover:bg-secondary'>
+    <div className='flex w-full justify-between duration-200 ~px-3/8 ~py-3/4 hover:cursor-pointer hover:bg-secondary'>
       <div className='flex items-center justify-center gap-2'>
         <div className='hidden h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
           {logo ? (
@@ -53,7 +53,7 @@ export default function CoinDisplay({
             '-'
           ) : (
             <div
-              className={`flex justify-end ~text-base/xl ${
+              className={`flex justify-end opacity-90 ~text-base/xl ${
                 usd_price_24hr_percent_change < 0
                   ? 'text-percentRed'
                   : 'text-percentGreen'

@@ -13,7 +13,7 @@ interface BalanceSeekerProps {
 }
 
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
-  const { setTotalBalance } = useBalanceStore()
+  const { setTotalBalance, isLoadingBalance } = useBalanceStore()
 
   const { data: tokenData, isFetching } = useQuery({
     queryKey: ['ownedTokenBalances'],
