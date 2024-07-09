@@ -2,6 +2,9 @@ import React from 'react'
 import { LinkComponent } from './link-component'
 import { FaXTwitter, FaGithub } from 'react-icons/fa6'
 import { ThemeToggle } from './ui/theme-toggle'
+import baseLogo from '../../public/assets/chains/base.svg'
+import Image from 'next/image'
+import { SlArrowRight } from 'react-icons/sl'
 
 export function Navbar() {
   return (
@@ -11,41 +14,36 @@ export function Navbar() {
           sympler
         </h1>
       </LinkComponent>
-      {/* <div className='hidden items-start text-xl font-semibold lg:grid'>
-        <Link
-          href={'/portfolio'}
-          className='flex items-center gap-2 text-start text-foreground/80 duration-100 hover:text-foreground'
+      <div className='flex gap-3 lg:grid lg:w-full lg:px-4'>
+        <button
+          disabled
+          className='flex items-center justify-between gap-3 rounded-md border border-input duration-200 ~text-base/xl ~px-2/4 ~py-1/2 hover:cursor-not-allowed hover:opacity-80 max-lg:m-auto max-lg:h-8'
         >
-          <HiWallet size={17} />
-          Portfolio
-        </Link>
-        <Link
-          href={'/'}
-          className='flex items-center gap-2 text-start text-foreground/80 duration-100 hover:text-foreground'
-        >
-          <FaUser size={17} />
-          Profile
-        </Link>
-      </div> */}
-      <div className='text-bold flex h-14 items-center gap-4 lg:w-full lg:justify-between lg:px-4'>
-        <div className='grid h-full justify-between'>
-          <span className='select-none'>beta v0.1</span>
-          <div className='flex justify-between gap-2'>
-            <LinkComponent
-              href='https://x.com/_sympler'
-              className='duration-200 hover:text-accent'
-            >
-              <FaXTwitter />
-            </LinkComponent>
-            <LinkComponent
-              href='https://github.com/gopiinho/sympler'
-              className='duration-200 hover:text-accent'
-            >
-              <FaGithub />
-            </LinkComponent>
+          <div className='flex gap-2'>
+            <Image src={baseLogo} width={20} height={20} alt='Chain logo' />
+            <span className='hidden sm:flex'>Base</span>
           </div>
+          <SlArrowRight className='hidden sm:flex' size={10} />
+        </button>
+        <div className='text-bold flex h-14 items-center gap-4 lg:w-full lg:justify-between'>
+          <div className='grid h-full items-center justify-between'>
+            <div className='flex justify-between gap-2'>
+              <LinkComponent
+                href='https://x.com/_sympler'
+                className='duration-200 hover:text-accent'
+              >
+                <FaXTwitter />
+              </LinkComponent>
+              <LinkComponent
+                href='https://github.com/gopiinho/sympler'
+                className='duration-200 hover:text-accent'
+              >
+                <FaGithub />
+              </LinkComponent>
+            </div>
+          </div>
+          <ThemeToggle />
         </div>
-        <ThemeToggle />
       </div>
     </header>
   )
