@@ -18,6 +18,13 @@ import '../assets/globals.css'
 const nats = localFont({
   src: '../../public/fonts/NATS.ttf',
   display: 'swap',
+  variable: '--font-nats',
+})
+
+const trap = localFont({
+  src: '../../public/fonts/TRAP.otf',
+  display: 'swap',
+  variable: '--font-trap',
 })
 
 export const metadata: Metadata = {
@@ -66,11 +73,11 @@ export default function RootLayout(props: PropsWithChildren) {
   )
 
   return (
-    <html lang='en' className={nats.className}>
+    <html lang='en' className={`${nats.variable} ${trap.variable}`}>
       <head>
         <link rel='icon' href='/favicon.ico' />
       </head>
-      <body>
+      <body className='font-trap'>
         <Web3Provider initialState={initialState}>
           <Layout>{props.children}</Layout>
         </Web3Provider>

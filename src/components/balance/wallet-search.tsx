@@ -31,9 +31,9 @@ export default function WalletSearch() {
     <div className='relative'>
       <div className='flex gap-1'>
         <input
-          className={`h-10 rounded-l-[0.5rem] border text-center text-base outline-0 duration-300 ~w-72/[27rem] ~px-4/8 ~py-2/3 ${
+          className={`h-10 rounded-l-[0.5rem] border text-center text-sm outline-0 duration-300 ~w-72/[27rem] ~px-4/8 ~py-2/3 ${
             error
-              ? 'border-percentRed/50 shadow-lg shadow-percentRed/50 hover:border-percentRed'
+              ? 'border-percentRed/80 shadow-lg shadow-percentRed/80 hover:border-percentRed'
               : 'border-accent/50 shadow-lg shadow-accent/50 hover:border-accent'
           }`}
           placeholder='Track any wallet address or ENS name'

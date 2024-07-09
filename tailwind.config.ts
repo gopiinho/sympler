@@ -24,6 +24,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        nats: ['var(--font-nats)'],
+        trap: ['var(--font-trap)'],
+      },
       colors: {
         percentGreen: 'hsl(var(--percent-green))',
         percentRed: 'hsl(var(--percent-red))',

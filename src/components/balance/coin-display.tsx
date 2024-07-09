@@ -20,7 +20,7 @@ export default function CoinDisplay({
   logo,
   portfolio_percentage,
 }: CoinDisplayProps) {
-  const shortName = name ? truncateString(name, 20) : null
+  const shortName = name ? truncateString(name, 17) : null
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
@@ -35,15 +35,15 @@ export default function CoinDisplay({
             <>{shortName?.substring(0, 1)}</>
           )}
         </div>
-        <span className='font-semibold ~text-base/lg'>{shortName}</span>
-        <span className='text-primary/50 ~text-sm/base'>{shortSymbol}</span>
+        <span className='font-semibold ~text-sm/base'>{shortName}</span>
+        <span className='text-primary/50 ~text-xs/base'>{shortSymbol}</span>
       </div>
       <div className='flex items-center justify-between ~gap-6/12 xl:w-[50%]'>
         <div className='hidden w-24 gap-1 text-end xl:grid'>
           {usd_price === null ? (
             '-'
           ) : (
-            <div className='flex justify-end ~text-base/xl'>
+            <div className='flex justify-end ~text-sm/base'>
               {formatPrice(usd_price)}
             </div>
           )}
@@ -54,7 +54,7 @@ export default function CoinDisplay({
             '-'
           ) : (
             <div
-              className={`flex justify-end opacity-90 ~text-base/xl ${
+              className={`flex justify-end opacity-90 ~text-sm/base ${
                 usd_price_24hr_percent_change < 0
                   ? 'text-percentRed'
                   : 'text-percentGreen'
@@ -65,11 +65,11 @@ export default function CoinDisplay({
             </div>
           )}
         </div>
-        <div className='grid w-20 gap-1 text-end'>
+        <div className='grid gap-1 text-end ~w-16/20'>
           {balance === null ? (
             '-'
           ) : (
-            <div className='flex justify-end ~text-base/xl'>
+            <div className='flex justify-end ~text-sm/base'>
               {nFormatter(Number(balance))}
             </div>
           )}
@@ -78,7 +78,7 @@ export default function CoinDisplay({
           {usd_value === null ? (
             '-'
           ) : (
-            <div className='flex justify-end ~text-base/xl'>
+            <div className='flex justify-end ~text-sm/base'>
               ${usd_value?.toFixed(2)}
             </div>
           )}

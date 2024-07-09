@@ -10,12 +10,14 @@ export default function TotalBalance() {
   }).format(totalBalance)
 
   return (
-    <div className='items-end justify-center text-end text-card-foreground ~text-3xl/5xl'>
-      <h4 className='text-xl text-foreground/80'>Total Balance</h4>
+    <div className='items-end justify-center text-end text-card-foreground'>
+      <h4 className='text-foreground/80 ~text-base/lg'>Total Balance</h4>
       {isLoadingBalance ? (
-        <span className='flex h-10 w-40 animate-pulse rounded-md bg-muted-foreground/40' />
+        <span className='flex h-11 w-40 animate-pulse rounded-md bg-muted-foreground/40' />
       ) : (
-        <span>{formattedUserBalance}</span>
+        <div className='font-nats text-foreground ~text-2xl/5xl'>
+          {formattedUserBalance}
+        </div>
       )}
     </div>
   )

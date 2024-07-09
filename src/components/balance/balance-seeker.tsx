@@ -51,7 +51,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
               <div className='hidden w-24 gap-1 text-end xl:grid'>
                 <span className='text-primary/50 ~text-xs/sm'>24h</span>
               </div>
-              <div className='grid w-20 gap-1 text-end'>
+              <div className='grid gap-1 text-end ~w-16/20'>
                 <span className='text-primary/50 ~text-xs/sm'>Amount</span>
               </div>
               <div className='grid w-20 gap-1 text-end'>
