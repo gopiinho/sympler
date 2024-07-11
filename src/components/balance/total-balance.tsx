@@ -11,11 +11,11 @@ export default function TotalBalance() {
 
   return (
     <div className='items-end justify-center text-end text-card-foreground'>
-      <h4 className='text-foreground/80 ~text-base/lg'>Total Balance</h4>
+      <h4 className='font-nats text-foreground/80 ~text-lg/xl'>Net Worth</h4>
       {isLoadingBalance ? (
         <span className='flex h-11 w-40 animate-pulse rounded-md bg-muted-foreground/40' />
       ) : (
-        <div className='font-nats text-foreground ~text-2xl/5xl'>
+        <div className='py-1 font-black text-foreground ~text-xl/4xl'>
           {formattedUserBalance}
         </div>
       )}

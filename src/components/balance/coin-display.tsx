@@ -1,7 +1,9 @@
 import { nFormatter, formatPrice } from '@/utils/formatters'
 import { TokenInfoType } from '@/types/token'
 
-interface CoinDisplayProps extends Partial<TokenInfoType> {}
+interface CoinDisplayProps extends Partial<TokenInfoType> {
+  isPercentFilter: boolean
+}
 
 function truncateString(str: string, maxLength: number): string {
   if (str.length > maxLength) {
@@ -19,12 +21,13 @@ export default function CoinDisplay({
   usd_price_24hr_percent_change,
   logo,
   portfolio_percentage,
+  isPercentFilter,
 }: CoinDisplayProps) {
   const shortName = name ? truncateString(name, 17) : null
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='group relative flex w-full justify-between duration-200 ~px-3/8 ~py-3/4 hover:bg-secondary/20'>
+    <div className='group relative flex w-full justify-between duration-200 ~px-4/6 ~py-3/4 hover:bg-secondary/20'>
       <div className='flex items-center justify-center gap-2'>
         <div className='hidden h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
           {logo ? (
@@ -84,10 +87,12 @@ export default function CoinDisplay({
           )}
         </div>
       </div>
-      <span
-        className='absolute inset-0 -z-20 h-full w-full rounded-r-md bg-accent/10 duration-300 group-hover:bg-accent/30'
-        style={{ width: `${portfolio_percentage}%` }}
-      />
+      {isPercentFilter ? (
+        <span
+          className='absolute inset-0 -z-20 h-full w-full rounded-r-md bg-accent/10 duration-300 group-hover:bg-accent/30'
+          style={{ width: `${portfolio_percentage}%` }}
+        />
+      ) : null}
     </div>
   )
 }

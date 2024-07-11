@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, useMemo } from 'react'
 import { Address } from 'viem'
 import CoinDisplay from './coin-display'
 import { useQuery } from '@tanstack/react-query'
@@ -7,12 +7,24 @@ import CoinPlaceholder from '../placeholders/coin-placeholder'
 import { getWalletTokenInfo } from '@/utils/api/api'
 import { TokenInfoType } from '@/types/token'
 import { useBalanceStore } from '@/context/balance-store'
+import { useSearchParams } from 'next/navigation'
 
 interface BalanceSeekerProps {
   address: Address
 }
 
+const useFilterStatus = () => {
+  const searchParams = useSearchParams()
+
+  return {
+    isPercentFilter: searchParams.has('percent'),
+    isZeroFilter: searchParams.has('zero'),
+    isSpamFilter: searchParams.has('spam'),
+  }
+}
+
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
+  const filters = useFilterStatus()
   const { setTotalBalance, setLoadingBalance } = useBalanceStore()
 
   const { data: tokenData, isFetching } = useQuery({
@@ -20,6 +32,16 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
     queryFn: () => getWalletTokenInfo(address),
     refetchOnWindowFocus: false,
   })
+
+  const tokenList = useMemo(() => {
+    if (!tokenData?.result) return []
+
+    return tokenData.result.filter((token: TokenInfoType) => {
+      if (filters.isSpamFilter && token.possible_spam) return false
+      if (filters.isZeroFilter && (token.usd_value ?? 0) <= 0.01) return false
+      return true
+    })
+  }, [tokenData, filters])
 
   useEffect(() => {
     setLoadingBalance(isFetching)
@@ -68,7 +90,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
             </>
           ) : (
             <>
-              {tokenData?.result?.map((token: TokenInfoType, index: number) => (
+              {tokenList?.map((token: TokenInfoType, index: number) => (
                 <CoinDisplay
                   key={index}
                   name={token.name}
@@ -81,6 +103,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
                     token.usd_price_24hr_percent_change
                   }
                   portfolio_percentage={token.portfolio_percentage}
+                  isPercentFilter={filters.isPercentFilter}
                 />
               ))}
             </>

@@ -1,6 +1,7 @@
 import { Address } from 'viem'
 import BalanceSeeker from '@/components/balance/balance-seeker'
 import ProfileSection from '@/components/profile/profile-section'
+import CoinFilter from '@/components/dashbaord/coin-filter'
 
 export default function Profile({ params }: { params: { address: Address } }) {
   return (
@@ -8,6 +9,7 @@ export default function Profile({ params }: { params: { address: Address } }) {
       {params.address ? (
         <>
           <ProfileSection />
+          <CoinFilter />
           <BalanceSeeker address={params.address} />
         </>
       ) : (

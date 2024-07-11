@@ -13,7 +13,7 @@ export default function Profile() {
   return (
     <div className='flex gap-4'>
       <div className='flex flex-col gap-1'>
-        <div className='font-nats text-foreground/80 ~text-2xl/5xl'>
+        <div className='py-1 font-black text-foreground ~text-xl/4xl'>
           {formatAddress(displayAddress)}
         </div>
       </div>
