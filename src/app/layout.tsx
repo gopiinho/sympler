@@ -16,15 +16,21 @@ import { headers } from 'next/headers'
 import '../assets/globals.css'
 
 const nats = localFont({
-  src: '../../public/fonts/NATS.ttf',
+  src: '../../public/fonts/nats.ttf',
   display: 'swap',
   variable: '--font-nats',
 })
 
 const trap = localFont({
-  src: '../../public/fonts/TRAP.otf',
+  src: '../../public/fonts/trap.otf',
   display: 'swap',
   variable: '--font-trap',
+})
+
+const inter = localFont({
+  src: '../../public/fonts/inter.ttf',
+  display: 'swap',
+  variable: '--font-inter',
 })
 
 export const metadata: Metadata = {
@@ -73,7 +79,10 @@ export default function RootLayout(props: PropsWithChildren) {
   )
 
   return (
-    <html lang='en' className={`${nats.variable} ${trap.variable}`}>
+    <html
+      lang='en'
+      className={`${nats.variable} ${trap.variable} ${inter.variable}`}
+    >
       <head>
         <link rel='icon' href='/favicon.ico' />
       </head>

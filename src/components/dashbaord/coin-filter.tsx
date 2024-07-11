@@ -1,6 +1,8 @@
 'use client'
 import { IoFilterOutline } from 'react-icons/io5'
 import { useRouter, useSearchParams, usePathname } from 'next/navigation'
+import { BiSolidShow } from 'react-icons/bi'
+import { BiSolidHide } from 'react-icons/bi'
 
 export default function CoinFilter() {
   const router = useRouter()
@@ -34,33 +36,36 @@ export default function CoinFilter() {
           <IoFilterOutline />
           <button
             onClick={handleFilterClick('percent')}
-            className={`rounded-md border py-1 duration-200 ~px-3/4 hover:bg-muted ${
+            className={`flex items-center gap-2 rounded-md border py-1 duration-200 ~px-3/4 hover:bg-muted ${
               isFilterActive('percent')
                 ? 'border-accent/50 bg-muted'
                 : 'border-primary/50'
             }`}
           >
-            Holding
+            Share
+            {isFilterActive('percent') ? <BiSolidShow /> : <BiSolidHide />}
           </button>
           <button
             onClick={handleFilterClick('zero')}
-            className={`rounded-md border py-1 duration-200 ~px-3/4 hover:bg-muted ${
+            className={`flex items-center gap-2 rounded-md border py-1 duration-200 ~px-3/4 hover:bg-muted ${
               isFilterActive('zero')
                 ? 'border-accent/50 bg-muted'
                 : 'border-primary/50'
             }`}
           >
             Small Balances
+            {isFilterActive('zero') ? <BiSolidShow /> : <BiSolidHide />}
           </button>
           <button
             onClick={handleFilterClick('spam')}
-            className={`rounded-md border py-1 duration-200 ~px-3/4 hover:bg-muted ${
+            className={`flex items-center gap-2 rounded-md border py-1 duration-200 ~px-3/4 hover:bg-muted ${
               isFilterActive('spam')
                 ? 'border-accent/50 bg-muted'
                 : 'border-primary/50'
             }`}
           >
             Spam
+            {isFilterActive('spam') ? <BiSolidShow /> : <BiSolidHide />}
           </button>
         </div>
       </div>

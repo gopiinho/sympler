@@ -1,5 +1,7 @@
 import { nFormatter, formatPrice } from '@/utils/formatters'
 import { TokenInfoType } from '@/types/token'
+import { toFixedIfNecessary } from '@/utils/utils'
+import { FaGasPump } from 'react-icons/fa6'
 
 interface CoinDisplayProps extends Partial<TokenInfoType> {
   isPercentFilter: boolean
@@ -22,6 +24,7 @@ export default function CoinDisplay({
   logo,
   portfolio_percentage,
   isPercentFilter,
+  native_token,
 }: CoinDisplayProps) {
   const shortName = name ? truncateString(name, 17) : null
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
@@ -40,6 +43,11 @@ export default function CoinDisplay({
         </div>
         <span className='font-semibold ~text-sm/base'>{shortName}</span>
         <span className='text-primary/50 ~text-xs/base'>{shortSymbol}</span>
+        {native_token ? (
+          <span className='pb-1 text-accent/80'>
+            <FaGasPump />
+          </span>
+        ) : null}
       </div>
       <div className='flex items-center justify-between ~gap-6/12 xl:w-[50%]'>
         <div className='hidden w-24 gap-1 text-end xl:grid'>
@@ -57,14 +65,17 @@ export default function CoinDisplay({
             '-'
           ) : (
             <div
-              className={`flex justify-end opacity-90 ~text-sm/base ${
+              className={`flex items-center justify-end opacity-90 ~text-sm/base ${
                 usd_price_24hr_percent_change < 0
                   ? 'text-percentRed'
-                  : 'text-percentGreen'
+                  : usd_price_24hr_percent_change > 0
+                    ? 'text-percentGreen'
+                    : 'text-foreground'
               }`}
             >
               {usd_price_24hr_percent_change > 0 ? '+' : ''}
-              {usd_price_24hr_percent_change.toFixed(2)}%
+              {toFixedIfNecessary(usd_price_24hr_percent_change, 2)}
+              <span className='font-nats'>%</span>
             </div>
           )}
         </div>

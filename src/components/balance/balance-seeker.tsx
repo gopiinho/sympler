@@ -37,8 +37,8 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
     if (!tokenData?.result) return []
 
     return tokenData.result.filter((token: TokenInfoType) => {
-      if (filters.isSpamFilter && token.possible_spam) return false
-      if (filters.isZeroFilter && (token.usd_value ?? 0) <= 0.01) return false
+      if (!filters.isSpamFilter && token.possible_spam) return false
+      if (!filters.isZeroFilter && (token.usd_value ?? 0) <= 0.01) return false
       return true
     })
   }, [tokenData, filters])
@@ -103,6 +103,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
                     token.usd_price_24hr_percent_change
                   }
                   portfolio_percentage={token.portfolio_percentage}
+                  native_token={token.native_token}
                   isPercentFilter={filters.isPercentFilter}
                 />
               ))}
