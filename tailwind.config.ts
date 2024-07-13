@@ -26,7 +26,8 @@ const config = {
     extend: {
       fontFamily: {
         nats: ['var(--font-nats)'],
-        trap: ['var(--font-trap)'],
+        trap: ['var(--font-inter)'],
+        inter: ['var(--font-inter)'],
       },
       colors: {
         percentGreen: 'hsl(var(--percent-green))',

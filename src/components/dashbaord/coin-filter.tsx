@@ -31,7 +31,7 @@ export default function CoinFilter() {
 
   return (
     <div>
-      <div className='flex items-center justify-end border-t-[0.4px] border-primary/20 text-sm ~gap-2/6 ~px-4/6 ~py-4/6'>
+      <div className='flex items-center justify-end border-t-[0.4px] border-primary/20 ~text-xs/sm ~gap-2/6 ~px-4/6 ~py-4/6'>
         <div className='flex items-center ~gap-2/8'>
           <IoFilterOutline />
           <button

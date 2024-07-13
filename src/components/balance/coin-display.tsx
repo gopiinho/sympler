@@ -30,7 +30,7 @@ export default function CoinDisplay({
   const shortSymbol = symbol ? truncateString(symbol, 10) : null
 
   return (
-    <div className='group relative flex w-full justify-between duration-200 ~px-4/6 ~py-3/4 hover:bg-secondary/20'>
+    <div className='group relative flex w-full justify-between duration-200 ~px-3/6 ~py-3/4 hover:bg-secondary/20'>
       <div className='flex items-center justify-center gap-2'>
         <div className='hidden h-10 w-10 items-center justify-center overflow-hidden rounded-full border-2 border-foreground bg-foreground/20 sm:flex'>
           {logo ? (
@@ -44,12 +44,12 @@ export default function CoinDisplay({
         <span className='font-semibold ~text-sm/base'>{shortName}</span>
         <span className='text-primary/50 ~text-xs/base'>{shortSymbol}</span>
         {native_token ? (
-          <span className='pb-1 text-accent/80'>
+          <span className='text-accent/50 duration-200 group-hover:text-accent'>
             <FaGasPump />
           </span>
         ) : null}
       </div>
-      <div className='flex items-center justify-between ~gap-6/12 xl:w-[50%]'>
+      <div className='flex items-center justify-between ~gap-4/12 xl:w-[50%]'>
         <div className='hidden w-24 gap-1 text-end xl:grid'>
           {usd_price === null ? (
             '-'
@@ -74,8 +74,7 @@ export default function CoinDisplay({
               }`}
             >
               {usd_price_24hr_percent_change > 0 ? '+' : ''}
-              {toFixedIfNecessary(usd_price_24hr_percent_change, 2)}
-              <span className='font-nats'>%</span>
+              {toFixedIfNecessary(usd_price_24hr_percent_change, 2)}%
             </div>
           )}
         </div>

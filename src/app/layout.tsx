@@ -24,7 +24,7 @@ const nats = localFont({
 const trap = localFont({
   src: '../../public/fonts/trap.otf',
   display: 'swap',
-  variable: '--font-trap',
+  variable: '--font-inter',
 })
 
 const inter = localFont({
@@ -86,7 +86,7 @@ export default function RootLayout(props: PropsWithChildren) {
       <head>
         <link rel='icon' href='/favicon.ico' />
       </head>
-      <body className='font-trap'>
+      <body className='font-inter'>
         <Web3Provider initialState={initialState}>
           <Layout>{props.children}</Layout>
         </Web3Provider>

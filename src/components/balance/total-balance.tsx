@@ -15,7 +15,7 @@ export default function TotalBalance() {
       {isLoadingBalance ? (
         <span className='flex h-11 w-40 animate-pulse rounded-md bg-muted-foreground/40' />
       ) : (
-        <div className='py-1 font-black text-foreground ~text-xl/4xl'>
+        <div className='py-1 font-semibold text-foreground ~text-xl/4xl'>
           {formattedUserBalance}
         </div>
       )}

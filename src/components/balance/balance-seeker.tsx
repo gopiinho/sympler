@@ -62,9 +62,9 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
 
   return (
     <>
-      <div className='scrollbar flex h-full flex-col gap-6 overflow-y-scroll ~py-4/6'>
-        <div className='grid gap-1'>
-          <div className='flex justify-between font-semibold text-primary/50 ~px-3/8'>
+      <div className='scrollbar flex h-full flex-col gap-6 overflow-y-scroll ~pb-4/6'>
+        <div className='grid'>
+          <div className='flex justify-between py-1 font-semibold text-primary/50 ~px-3/6'>
             <span>Tokens</span>
             <div className='flex justify-between ~gap-6/12 xl:w-[50%]'>
               <div className='hidden w-24 gap-1 text-end xl:grid'>
