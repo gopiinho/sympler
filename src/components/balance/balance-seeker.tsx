@@ -93,6 +93,7 @@ export default function BalanceSeeker({ address }: BalanceSeekerProps) {
               {tokenList?.map((token: TokenInfoType, index: number) => (
                 <CoinDisplay
                   key={index}
+                  token_address={token.token_address}
                   name={token.name}
                   symbol={token.symbol}
                   usd_price={token.usd_price}
