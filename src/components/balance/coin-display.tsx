@@ -10,6 +10,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion'
 import { IoMdSwap } from 'react-icons/io'
+import { FaChartArea } from 'react-icons/fa'
 
 interface CoinDisplayProps extends Partial<TokenInfoType> {
   isPercentFilter: boolean
@@ -120,11 +121,23 @@ export default function CoinDisplay({
           </div>
         </AccordionTrigger>
         <AccordionContent>
-          <div className='flex w-full items-end justify-end gap-3'>
+          <div className='flex w-full items-end justify-end ~gap-4/6'>
+            <Link
+              href={`https://dexscreener.com/base/${token_address}`}
+              target='_blank'
+              rel='noopener'
+              className='flex items-end justify-end gap-3'
+            >
+              <button className='flex items-center justify-center rounded-md border-[0.4px] border-foreground duration-200 ~gap-1/2 ~px-3/4 ~py-1/2 hover:border-accent hover:bg-muted'>
+                <FaChartArea />
+                DEX Screener
+              </button>
+            </Link>
             <Link
               href={`https://app.uniswap.org/swap?outputCurrency=${token_address}&chain=base`}
               target='_blank'
               rel='noopener'
+              className='flex items-end justify-end gap-3'
             >
               <button className='flex items-center justify-center rounded-md border-[0.4px] border-foreground duration-200 ~gap-1/2 ~px-3/4 ~py-1/2 hover:border-accent hover:bg-muted'>
                 <IoMdSwap />
