@@ -16,11 +16,23 @@ export default function WalletSearch() {
     setError(false)
   }
 
+  const storeAddressInLocalStorage = (address: string | Address) => {
+    const addresses = JSON.parse(
+      localStorage.getItem('recentAddresses') || '[]'
+    )
+    if (!addresses.includes(address)) {
+      addresses.unshift(address)
+      if (addresses.length > 3) addresses.pop()
+    }
+    localStorage.setItem('recentAddresses', JSON.stringify(addresses))
+  }
+
   const openProfile = () => {
     const isValidAddress = validateAddress(address)
     if (isValidAddress) {
       setError(false)
       setIsLoadingProfile(true)
+      storeAddressInLocalStorage(address)
       router.push(`/profile/${address}`)
     } else {
       setError(true)
