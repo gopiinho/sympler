@@ -3,7 +3,7 @@ import { WalletTokenInfoResponseType } from '@/types/token'
 
 export const getWalletTokenInfo = async (
   address: string,
-  chain = 'base'
+  chain: string
 ): Promise<WalletTokenInfoResponseType> => {
   const response = await axiosMoralisInstance.get<WalletTokenInfoResponseType>(
     `/wallets/${address}/tokens`,

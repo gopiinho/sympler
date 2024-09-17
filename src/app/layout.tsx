@@ -14,6 +14,7 @@ import { cookieToInitialState } from 'wagmi'
 import { WALLETCONNECT_CONFIG } from '@/utils/web3'
 import { headers } from 'next/headers'
 import '../assets/globals.css'
+import { StoreHydration } from '@/components/store-hydration'
 
 const nats = localFont({
   src: '../../public/fonts/nats.ttf',
@@ -88,6 +89,7 @@ export default function RootLayout(props: PropsWithChildren) {
       </head>
       <body className='font-inter'>
         <Web3Provider initialState={initialState}>
+          <StoreHydration />
           <Layout>{props.children}</Layout>
         </Web3Provider>
       </body>

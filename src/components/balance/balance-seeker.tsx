@@ -8,6 +8,7 @@ import { getWalletTokenInfo } from '@/utils/api/api'
 import { TokenInfoType } from '@/types/token'
 import { useBalanceStore } from '@/context/balance-store'
 import { useSearchParams } from 'next/navigation'
+import { useChainStore } from '@/context/chain'
 
 interface BalanceSeekerProps {
   address: Address
@@ -24,12 +25,13 @@ const useFilterStatus = () => {
 }
 
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
+  const { currentChain } = useChainStore()
   const filters = useFilterStatus()
   const { setTotalBalance, setLoadingBalance } = useBalanceStore()
 
   const { data: tokenData, isFetching } = useQuery({
     queryKey: ['ownedTokenBalances'],
-    queryFn: () => getWalletTokenInfo(address),
+    queryFn: () => getWalletTokenInfo(address, currentChain),
     refetchOnWindowFocus: false,
   })
 

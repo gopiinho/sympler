@@ -34,7 +34,7 @@ export default function RecentWallets() {
             {wallets.map((wallet, index) => (
               <button
                 onClick={openProfile(wallet)}
-                className='cursor-pointer rounded-[0.5rem] border border-accent/20 px-4 py-2 duration-200 hover:border-accent/70 hover:bg-accent/10'
+                className='cursor-pointer rounded-[0.5rem] border border-accent/20 px-4 py-2 duration-200 hover:border-accent/70 hover:bg-accent/10 max-sm:w-full'
                 key={index}
               >
                 {formatAddress(wallet)}
