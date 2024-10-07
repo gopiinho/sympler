@@ -27,13 +27,23 @@ const useFilterStatus = () => {
 export default function BalanceSeeker({ address }: BalanceSeekerProps) {
   const { currentChain } = useChainStore()
   const filters = useFilterStatus()
-  const { setTotalBalance, setLoadingBalance } = useBalanceStore()
+  const { setTotalBalance, setLoadingBalance, setRefetchFunction } =
+    useBalanceStore()
 
-  const { data: tokenData, isFetching } = useQuery({
-    queryKey: ['ownedTokenBalances'],
+  const {
+    data: tokenData,
+    isFetching,
+    refetch,
+  } = useQuery({
+    queryKey: ['ownedTokenBalances', currentChain],
     queryFn: () => getWalletTokenInfo(address, currentChain),
     refetchOnWindowFocus: false,
+    enabled: !!currentChain,
   })
+
+  useEffect(() => {
+    setRefetchFunction(refetch)
+  }, [refetch, setRefetchFunction])
 
   const tokenList = useMemo(() => {
     if (!tokenData?.result) return []

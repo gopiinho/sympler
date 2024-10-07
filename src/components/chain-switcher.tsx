@@ -2,6 +2,7 @@
 import Image from 'next/image'
 import { SlArrowRight } from 'react-icons/sl'
 import { useChainStore } from '@/context/chain'
+import { useBalanceStore } from '@/context/balance-store'
 import { chainConfigs } from '@/utils/chainConfig'
 import {
   DropdownMenu,
@@ -12,6 +13,7 @@ import {
 import { useState, useEffect } from 'react'
 
 export default function ChainSwitcher() {
+  const { refetchFunction } = useBalanceStore()
   const { currentChain, setCurrentChain, isHydrated } = useChainStore()
   const [selectedChain, setSelectedChain] = useState(currentChain)
 
@@ -26,8 +28,13 @@ export default function ChainSwitcher() {
   )
 
   const handleChainChange = (chainId: string) => {
-    setSelectedChain(chainId)
     setCurrentChain(chainId)
+    setSelectedChain(chainId)
+    if (refetchFunction) {
+      refetchFunction()
+    } else {
+      console.error('Cannot Refetch')
+    }
   }
 
   if (!isHydrated || !currentChainConfig) return null

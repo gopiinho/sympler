@@ -5,6 +5,8 @@ type BalanceStoreType = {
   setTotalBalance: (balance: number) => void
   isLoadingBalance: boolean
   setLoadingBalance: (value: boolean) => void
+  refetchFunction: (() => void) | null
+  setRefetchFunction: (refetch: () => void) => void
 }
 
 export const useBalanceStore = create<BalanceStoreType>((set) => ({
@@ -12,4 +14,6 @@ export const useBalanceStore = create<BalanceStoreType>((set) => ({
   setTotalBalance: (balance) => set({ totalBalance: balance }),
   isLoadingBalance: true,
   setLoadingBalance: (value) => set({ isLoadingBalance: value }),
+  refetchFunction: null,
+  setRefetchFunction: (refetch) => set({ refetchFunction: refetch }),
 }))
