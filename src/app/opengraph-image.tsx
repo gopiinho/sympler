@@ -12,13 +12,7 @@ export const contentType = 'image/png'
 export default async function Image() {
   return new ImageResponse(
     (
-      <div
-        tw='flex flex-col items-center justify-center w-full h-full text-white'
-        style={{
-          background:
-            'linear-gradient(to right bottom, rgb(17, 24, 39), rgb(75, 85, 99))',
-        }}
-      >
+      <div tw='flex flex-col items-center justify-center w-full h-full text-white bg-dark text-light font-nats'>
         <h1 tw='text-8xl'>{SITE_NAME}</h1>
         <p tw='text-4xl'>{SITE_INFO}</p>
       </div>
